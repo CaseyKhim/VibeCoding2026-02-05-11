@@ -1,24 +1,45 @@
 
+:root {
+    --bg-color: #f0f0f0;
+    --container-bg: white;
+    --text-color: #333;
+    --number-bg: #4CAF50;
+    --button-bg: #008CBA;
+    --button-hover-bg: #005f7a;
+}
+
+body.dark-mode {
+    --bg-color: #222;
+    --container-bg: #333;
+    --text-color: #eee;
+    --number-bg: #6a0dad; /* A darker, purple-ish tone for night mode */
+    --button-bg: #8A2BE2; /* A purple tone for night mode */
+    --button-hover-bg: #6A0DAD;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
     margin: 0;
+    transition: background-color 0.3s ease; /* Smooth transition for theme change */
 }
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: var(--container-bg);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color);
+    transition: color 0.3s ease; /* Smooth transition */
 }
 
 #numbers-display {
@@ -32,26 +53,28 @@ h1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #4CAF50;
+    background-color: var(--number-bg);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition */
 }
 
-#generate-button {
-    background-color: #008CBA;
+#generate-button, #theme-toggle {
+    background-color: var(--button-bg);
     color: white;
     padding: 1rem 2rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
+    margin: 0.5rem; /* Add some space around buttons */
 }
 
-#generate-button:hover {
-    background-color: #005f7a;
+#generate-button:hover, #theme-toggle:hover {
+    background-color: var(--button-hover-bg);
 }

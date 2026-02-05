@@ -1,6 +1,22 @@
 
 const generateButton = document.getElementById('generate-button');
 const numbersDisplay = document.getElementById('numbers-display');
+const themeToggleButton = document.getElementById('theme-toggle');
+
+// Theme logic
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.body.classList.add(currentTheme);
+}
+
+themeToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    let theme = 'light-mode'; // Default to light
+    if (document.body.classList.contains('dark-mode')) {
+        theme = 'dark-mode';
+    }
+    localStorage.setItem('theme', theme);
+});
 
 generateButton.addEventListener('click', () => {
     generateTotoNumbers();
